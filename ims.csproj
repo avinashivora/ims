@@ -70,6 +70,12 @@
     <Compile Include="UI\Controls\CategoryAccordion.Designer.cs">
       <DependentUpon>CategoryAccordion.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\AddStockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\AddStockForm.Designer.cs">
+      <DependentUpon>AddStockForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\CategoryItemViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,8 +146,14 @@
     <EmbeddedResource Include="UI\Controls\CategoryAccordion.resx">
       <DependentUpon>CategoryAccordion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ItemFormControl.resx">
+      <DependentUpon>ItemFormControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\ItemPreviewCard.resx">
       <DependentUpon>ItemPreviewCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\AddStockForm.resx">
+      <DependentUpon>AddStockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Pages\CategoriesPage.resx">
       <DependentUpon>CategoriesPage.cs</DependentUpon>

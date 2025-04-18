@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using ims.Models;
 using ims.Utils;
+using ims.UI.Forms;
 
 namespace ims.UI.Controls
 {
@@ -17,15 +18,16 @@ namespace ims.UI.Controls
         private const int ImageWidth = 120;
         private const int ImageHeight = 100;
         private const int FixedCardWidth = 680;
-        private const int StockLabelWidth = 70;
         private const int PriceLabelOffsetFromRight = 250;
         private const int DeleteButtonSize = 30;
         private const int DeleteButtonRightOffset = 10;
         private const int DeleteButtonTopOffset = 10;
+        private const int ImageRightPadding = 50; // Additional padding between image and right edge
 
         public Item ItemData { get; private set; }
         public event Action<Item> ItemClicked;
         public event Action<Item> ItemDeleteRequested;
+        public event Action<Item> AddStockRequested;
 
         public ItemPreviewCard(Item item)
         {
@@ -36,7 +38,10 @@ namespace ims.UI.Controls
 
             this.Click += ItemPreviewCard_Click;
             foreach (Control ctl in this.Controls)
-                ctl.Click += ItemPreviewCard_Click;
+            {
+                if (ctl != btnDeleteItem && ctl != btnAddStock)
+                    ctl.Click += ItemPreviewCard_Click;
+            }
 
             this.Disposed += ItemPreviewCard_Disposed;
         }
@@ -60,7 +65,7 @@ namespace ims.UI.Controls
         private void ItemPreviewCard_Click(object sender, EventArgs e)
         {
             // Prevent click on the delete button from triggering the item click
-            if (sender != btnDeleteItem)
+            if (sender != btnDeleteItem && sender != btnAddStock)
             {
                 ItemClicked?.Invoke(ItemData);
             }
@@ -77,7 +82,7 @@ namespace ims.UI.Controls
             lblPrice.Text = lblPrice.Text.Replace("Price:", "<b>Price:</b> ₹");
 
             // Load Images
-            _images = new List<Image>();
+            _images = [];
             foreach (var base64 in ItemData.Images ?? [])
             {
                 try
@@ -119,27 +124,29 @@ namespace ims.UI.Controls
         {
             int currentY = HorizontalPadding;
 
+            // Position Add Stock button
+            btnAddStock.Location = new Point(lblName.Width + HorizontalPadding + 10, HorizontalPadding);
+
             // Name
             lblName.Location = new Point(HorizontalPadding, currentY);
             currentY = lblName.Bottom + VerticalSpacing;
 
             // Stock and Price on the same line
-            lblQuantity.Location = new Point(HorizontalPadding, currentY);
-            lblPrice.Location = new Point(this.ClientSize.Width - PriceLabelOffsetFromRight, currentY);
+            lblPrice.Location = new Point(HorizontalPadding, currentY);
+            lblQuantity.Location = new Point(lblName.Width + HorizontalPadding + 10, currentY);
             currentY = lblQuantity.Bottom + VerticalSpacing; // Move Y down after this line
 
             // Description
             lblDescription.Location = new Point(HorizontalPadding, currentY);
             lblDescription.AutoSize = true;
-            lblDescription.MaximumSize = new Size(
-                pictureBox.Visible ? this.ClientSize.Width - ImageWidth - 3 * HorizontalPadding - DeleteButtonSize - 5 : this.ClientSize.Width - 2 * HorizontalPadding - DeleteButtonSize - 5,
-                0);
+            lblDescription.MaximumSize = new Size(this.ClientSize.Width - ImageWidth - 3 * HorizontalPadding - DeleteButtonSize - ImageRightPadding, 0
+                );
             currentY = lblDescription.Bottom + VerticalSpacing;
 
             // Position PictureBox
             if (pictureBox.Visible)
             {
-                pictureBox.Location = new Point(this.ClientSize.Width - ImageWidth - HorizontalPadding, HorizontalPadding);
+                pictureBox.Location = new Point(this.ClientSize.Width - ImageWidth - HorizontalPadding - ImageRightPadding, HorizontalPadding);
                 currentY = Math.Max(currentY, pictureBox.Bottom + HorizontalPadding);
             }
             else
@@ -169,8 +176,8 @@ namespace ims.UI.Controls
             base.OnResize(e);
             this.Width = FixedCardWidth;
             lblDescription.MaximumSize = new Size(
-                pictureBox.Visible ? this.ClientSize.Width - ImageWidth - 3 * HorizontalPadding - DeleteButtonSize - 5 : this.ClientSize.Width - 2 * HorizontalPadding - DeleteButtonSize - 5,
-                0);
+                this.ClientSize.Width - ImageWidth - 3 * HorizontalPadding - DeleteButtonSize - ImageRightPadding, 0
+                );
             // Keep the price label's X position consistent relative to the right
             lblPrice.Location = new Point(this.ClientSize.Width - PriceLabelOffsetFromRight, lblQuantity.Location.Y);
             // Keep the delete button's position consistent relative to the right
@@ -181,6 +188,11 @@ namespace ims.UI.Controls
         private void BtnDeleteItem_Click(object sender, EventArgs e)
         {
             ItemDeleteRequested?.Invoke(ItemData);
+        }
+
+        private void BtnAddStock_Click(object sender, EventArgs e)
+        {
+            AddStockRequested?.Invoke(ItemData);
         }
     }
 }

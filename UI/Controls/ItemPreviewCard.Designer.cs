@@ -11,6 +11,7 @@ namespace ims.UI.Controls
         private Guna.UI2.WinForms.Guna2HtmlLabel lblPrice;
         private Guna.UI2.WinForms.Guna2PictureBox pictureBox;
         private Guna.UI2.WinForms.Guna2Button btnDeleteItem;
+        private Guna.UI2.WinForms.Guna2Button btnAddStock;
 
         protected override void Dispose(bool disposing)
         {
@@ -27,6 +28,7 @@ namespace ims.UI.Controls
             this.pictureBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblPrice = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnDeleteItem = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddStock = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             //
@@ -45,7 +47,7 @@ namespace ims.UI.Controls
             //
             this.lblDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblDescription.Location = new System.Drawing.Point(10, 89);
+            this.lblDescription.Location = new System.Drawing.Point(10, 90);
             this.lblDescription.MaximumSize = new System.Drawing.Size(470, 0); // Initial max width, adjusted in code
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(93, 27);
@@ -68,7 +70,7 @@ namespace ims.UI.Controls
             //
             this.pictureBox.BorderRadius = 10;
             this.pictureBox.ImageRotate = 0F;
-            this.pictureBox.Location = new System.Drawing.Point(this.ClientSize.Width - 80, 40);
+            this.pictureBox.Location = new System.Drawing.Point(this.ClientSize.Width - 180, 40); // Moved more to the left
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(120, 100);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -100,6 +102,18 @@ namespace ims.UI.Controls
             this.btnDeleteItem.Text = "🗑";
             this.btnDeleteItem.Click += new System.EventHandler(this.BtnDeleteItem_Click);
             //
+            // btnAddStock
+            //
+            this.btnAddStock.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnAddStock.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnAddStock.ForeColor = System.Drawing.Color.White;
+            this.btnAddStock.Location = new System.Drawing.Point(150, 10);
+            this.btnAddStock.Name = "btnAddStock";
+            this.btnAddStock.Size = new System.Drawing.Size(80, 30);
+            this.btnAddStock.TabIndex = 7;
+            this.btnAddStock.Text = "Add Stock";
+            this.btnAddStock.Click += new System.EventHandler(this.BtnAddStock_Click);
+            //
             // ItemPreviewCard
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,6 +122,7 @@ namespace ims.UI.Controls
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.btnAddStock);
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblName);

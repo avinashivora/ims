@@ -19,6 +19,7 @@ namespace ims.UI.Controls
         public event Action<CategoryAccordion> ToggledOpen;
         public event Action<Item> ItemClicked;
         public event Action<Item> ItemDeleteRequested;
+        public event Action<Item> AddStockRequested;
 
         public Func<string, Task<List<Item>>> LoadItemsRequestedAsync;
 
@@ -120,6 +121,7 @@ namespace ims.UI.Controls
                 };
                 card.ItemClicked += i => ItemClicked?.Invoke(i);
                 card.ItemDeleteRequested += i => ItemDeleteRequested?.Invoke(i);
+                card.AddStockRequested += i => AddStockRequested?.Invoke(i);
                 panelItems.Controls.Add(card);
                 totalHeight += card.Height + card.Margin.Bottom;
             }

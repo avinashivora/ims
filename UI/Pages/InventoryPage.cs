@@ -25,7 +25,7 @@ namespace ims.UI.Pages
             InitializeComponent();
             _itemService = new ItemService();
             _categoryService = new CategoryService();
-            _cachedItemsByCategoryId = new Dictionary<string, List<Item>>();
+            _cachedItemsByCategoryId = [];
             _searchDebounceTimer = new Timer { Interval = 400 };
             _searchDebounceTimer.Tick += SearchDebounceTimer_Tick;
         }
@@ -56,16 +56,17 @@ namespace ims.UI.Pages
 
         private CategoryAccordion CreateCategoryAccordion(Category category)
         {
-            var accordion = new CategoryAccordion(category);
-
-            accordion.LoadItemsRequestedAsync = async (categoryId) =>
+            var accordion = new CategoryAccordion(category)
             {
-                if (_cachedItemsByCategoryId.TryGetValue(categoryId, out var cached))
-                    return cached;
+                LoadItemsRequestedAsync = async (categoryId) =>
+                {
+                    if (_cachedItemsByCategoryId.TryGetValue(categoryId, out var cached))
+                        return cached;
 
-                var items = await _itemService.GetItemsByCategoryIdAsync(categoryId);
-                _cachedItemsByCategoryId[categoryId] = items;
-                return items;
+                    var items = await _itemService.GetItemsByCategoryIdAsync(categoryId);
+                    _cachedItemsByCategoryId[categoryId] = items;
+                    return items;
+                }
             };
 
             accordion.ItemClicked += OnItemClicked;
@@ -73,8 +74,24 @@ namespace ims.UI.Pages
             accordion.ToggledOpen += OnCategoryToggledOpen;
             accordion.OnEditCategory += ShowCategoryEditForm;
             accordion.OnDeleteCategory += DeleteCategoryAsync;
+            accordion.AddStockRequested += OnAddStockRequested;
 
             return accordion;
+        }
+
+        private void OnAddStockRequested(Item item)
+        {
+            var addStockForm = new AddStockForm(item);
+            addStockForm.FormClosed += async (s, e) =>
+            {
+                if (addStockForm.UpdatedItem != null)
+                {
+                    // Remove the cached items to force a refresh
+                    _cachedItemsByCategoryId.Remove(item.CategoryId);
+                    await RefreshCategoryAccordion(item.CategoryId);
+                }
+            };
+            addStockForm.ShowDialog();
         }
 
         private void OnItemClicked(Item item)

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using ims.Models;
 using ims.Services;
 using ims.Utils;
@@ -15,7 +15,7 @@ namespace ims.UI.Controls
         private readonly ItemService _itemService = new();
         private readonly CategoryService _categoryService = new();
         private readonly bool _isUpdate;
-        private Item _item;
+        private readonly Item _item;
         private BarcodeData _generatedBarcode;
         private string _selectedBarcodeType = "Code93";
         private List<string> _imageBase64List = [];
@@ -71,7 +71,7 @@ namespace ims.UI.Controls
             try
             {
                 if (!ValidateInputs()) return;
-
+                
                 var item = new Item
                 {
                     Id = _item?.Id,
@@ -113,6 +113,17 @@ namespace ims.UI.Controls
                 }
                 else
                 {
+                    if (item.Quantity != _item.Quantity)
+                    {
+                        var confirmResult = MessageBox.Show("Quantity has changed. Do you want to update the stock?",
+                            "Confirm Update",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+                        if (confirmResult == DialogResult.No)
+                        {
+                            numQuantity.Value = _item.Quantity; // Reset to original quantity   
+                        }
+                    }
                     await _itemService.UpdateItemAsync(item.Id, item);
                     UpdatedItem = item; // Now you can set it
                     MessageBox.Show("Item updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -239,6 +250,40 @@ namespace ims.UI.Controls
                 lblImageIndex.Text = "0 / 0";
                 btnDeleteImage.Enabled = false;
             }
+        }
+
+        private void TxtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow digits, decimal point, control characters (backspace, delete)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Block the character
+            }
+
+            // Allow only one decimal point
+            if (e.KeyChar == '.' && (sender as Guna2TextBox).Text.Contains('.'))
+            {
+                e.Handled = true; // Block the second decimal point
+            }
+        }
+
+        private void TxtPrice_Leave(object sender, EventArgs e)
+        {
+            Guna2TextBox textBox = sender as Guna2TextBox;
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                if (!float.TryParse(textBox.Text, out float value) || value < 0)
+                {
+                    MessageBox.Show("Please enter the Proper Price.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox.Text = ""; // Clear the invalid input
+                    textBox.Focus();     // Optionally set focus back to the textbox
+                }
+            }
+        }
+
+        private void NumQuantity_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

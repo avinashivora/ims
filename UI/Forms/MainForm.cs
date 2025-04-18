@@ -29,7 +29,7 @@ namespace ims
             inventoryPage.BringToFront();
         }
 
-        private async void BtnCreateItem_Click(object sender, EventArgs e)
+        private void BtnCreateItem_Click(object sender, EventArgs e)
         {
             var itemForm = new ItemForm();
             itemForm.FormClosed += async (s, args) =>
@@ -47,7 +47,7 @@ namespace ims
             itemForm.ShowDialog();
         }
 
-        private async void BtnCreateCategory_Click(object sender, EventArgs e)
+        private void BtnCreateCategory_Click(object sender, EventArgs e)
         {
             var categoryForm = new CategoryForm();
             categoryForm.FormClosed += async (s, args) =>
