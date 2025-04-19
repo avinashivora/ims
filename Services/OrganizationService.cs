@@ -17,27 +17,27 @@ namespace ims.Services
             _organizationCollection = db.GetCollection<Organization>("organizations");
         }
 
-        public async Task<List<Organization>> GetAllAsync()
+        public async Task<List<Organization>> GetAllOrganizationsAsync()
         {
             return await _organizationCollection.Find(_ => true).ToListAsync();
         }
 
-        public async Task<Organization> GetByIdAsync(string id)
+        public async Task<Organization> GetOrganizationByIdAsync(string id)
         {
             return await _organizationCollection.Find(o => o.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task AddAsync(Organization org)
+        public async Task AddOrganizationAsync(Organization org)
         {
             await _organizationCollection.InsertOneAsync(org);
         }
 
-        public async Task UpdateAsync(string id, Organization updated)
+        public async Task UpdateOrganizationAsync(string id, Organization updated)
         {
             await _organizationCollection.ReplaceOneAsync(o => o.Id == id, updated);
         }
 
-        public async Task DeleteAsync(string id)
+        public async Task DeleteOrganizationByIdAsync(string id)
         {
             await _organizationCollection.DeleteOneAsync(o => o.Id == id);
         }

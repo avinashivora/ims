@@ -17,37 +17,37 @@ namespace ims.Services
             _userCollection = db.GetCollection<User>("users");
         }
 
-        public async Task<List<User>> GetAllAsync()
+        public async Task<List<User>> GetAllUsersAsync()
         {
             return await _userCollection.Find(_ => true).ToListAsync();
         }
 
-        public async Task<User> GetByEmailAsync(string email)
+        public async Task<User> GetUserByEmailAsync(string email)
         {
             return await _userCollection.Find(u => u.Email.ToLower() == email.ToLower()).FirstOrDefaultAsync();
         }
 
-        public async Task<User> GetByIdAsync(string id)
+        public async Task<User> GetUserByIdAsync(string id)
         {
             return await _userCollection.Find(u => u.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task AddAsync(User user)
+        public async Task AddUserAsync(User user)
         {
             await _userCollection.InsertOneAsync(user);
         }
 
-        public async Task UpdateAsync(string id, User updated)
+        public async Task UpdateUserByIdAsync(string id, User updated)
         {
             await _userCollection.ReplaceOneAsync(u => u.Id == id, updated);
         }
 
-        public async Task DeleteAsync(string id)
+        public async Task DeleteUserByIdAsync(string id)
         {
             await _userCollection.DeleteOneAsync(u => u.Id == id);
         }
 
-        public async Task<List<User>> GetByOrganizationIdAsync(string orgId)
+        public async Task<List<User>> GetUsersByOrganizationIdAsync(string orgId)
         {
             return await _userCollection.Find(u => u.OrganizationId == orgId).ToListAsync();
         }

@@ -54,12 +54,23 @@ namespace ims.Services
         public async Task<List<Item>> GetItemsByCategoryIdsAsync(List<string> categoryIds)
         {
             if (!CacheManager.IsLoggedIn) throw new InvalidOperationException("User is not logged in.");
-            if (categoryIds == null || categoryIds.Count == 0) return new List<Item>();
+            if (categoryIds == null || categoryIds.Count == 0) return [];
 
             var filter = Builders<Item>.Filter.In(i => i.CategoryId, categoryIds) &
                          Builders<Item>.Filter.Eq(i => i.OrganizationId, CacheManager.CurrentOrganizationId);
 
             return await _itemCollection.Find(filter).ToListAsync();
+        }
+
+        public async Task<bool> CheckItemStockAsync(string itemId, int requestedQuantity)
+        {
+            if (!CacheManager.IsLoggedIn) throw new InvalidOperationException("User is not logged in.");
+
+            var item = await GetItemByIdAsync(itemId);
+            if (item == null)
+                return false;
+
+            return item.Quantity >= requestedQuantity;
         }
 
         public async Task AddItemAsync(Item item)

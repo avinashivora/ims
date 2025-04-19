@@ -87,7 +87,7 @@ namespace ims.UI.Controls
 
                 if (!_isUpdate || IsBarcodeRegenerationRequested())
                 {
-                    _generatedBarcode = BarcodeHelper.GenerateBarcode(item.Name, _selectedBarcodeType);
+                    _generatedBarcode = BarcodeHelper.GenerateBarcode(BarcodeHelper.GenerateUniqueBarcodeString(item.Name, item.OrganizationId), _selectedBarcodeType);
                     pbBarcode.Image = BarcodeHelper.Base64ToImage(_generatedBarcode.BarcodeImage);
                     item.Barcode = _generatedBarcode;
 
