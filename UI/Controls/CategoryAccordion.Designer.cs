@@ -23,12 +23,12 @@ namespace ims.UI.Controls
 
         private void InitializeComponent()
         {
-            this.headerPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblCategory = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblCount = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
-            this.btnToggle = new Guna.UI2.WinForms.Guna2Button();
+            this.headerPanel = new Guna2Panel();
+            this.lblCategory = new Guna2HtmlLabel();
+            this.lblCount = new Guna2HtmlLabel();
+            this.btnEdit = new Guna2Button();
+            this.btnDelete = new Guna2Button();
+            this.btnToggle = new Guna2Button();
             this.panelItems = new System.Windows.Forms.FlowLayoutPanel();
             this.headerPanel.SuspendLayout();
             this.SuspendLayout();

@@ -1,14 +1,15 @@
 ﻿using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace ims.UI.Forms
 {
     partial class DuplicateItemViewer
     {
         private System.ComponentModel.IContainer components = null;
-        private Guna.UI2.WinForms.Guna2Panel pnlContainer;
-        private Guna.UI2.WinForms.Guna2Button btnYes;
-        private Guna.UI2.WinForms.Guna2Button btnNo;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblPrompt;
+        private Guna2Panel pnlContainer;
+        private Guna2Button btnYes;
+        private Guna2Button btnNo;
+        private Guna2HtmlLabel lblPrompt;
         private FlowLayoutPanel flowLayoutPanel;
 
         protected override void Dispose(bool disposing)
@@ -20,11 +21,11 @@ namespace ims.UI.Forms
 
         private void InitializeComponent()
         {
-            this.pnlContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlContainer = new Guna2Panel();
             this.flowLayoutPanel = new FlowLayoutPanel();
-            this.lblPrompt = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btnYes = new Guna.UI2.WinForms.Guna2Button();
-            this.btnNo = new Guna.UI2.WinForms.Guna2Button();
+            this.lblPrompt = new Guna2HtmlLabel();
+            this.btnYes = new Guna2Button();
+            this.btnNo = new Guna2Button();
             this.pnlContainer.SuspendLayout();
             this.SuspendLayout();
             // 

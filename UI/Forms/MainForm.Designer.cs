@@ -1,22 +1,30 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using Guna.UI2.WinForms;
+using ims.UI.Pages;
+using ims.Utils;
 
-namespace ims
+namespace ims.UI.Forms
 {
     partial class MainForm
     {
-        private Guna.UI2.WinForms.Guna2Panel sidebarPanel;
-        private Guna.UI2.WinForms.Guna2Button btnInventory;
-        private Guna.UI2.WinForms.Guna2Button btnCreateItem;
-        private Guna.UI2.WinForms.Guna2Button btnCreateCategory;
+        private Guna2Panel sidebarPanel;
+        private Guna2Button btnInventory;
+        private Guna2Button btnCreateItem;
+        private Guna2Button btnCreateCategory;
+        private Guna2Button btnBilling;
+        private Guna2Button btnSetBillSavePath;
         private Panel mainContentPanel;
 
         private void InitializeComponent()
         {
-            this.sidebarPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnCreateCategory = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCreateItem = new Guna.UI2.WinForms.Guna2Button();
-            this.btnInventory = new Guna.UI2.WinForms.Guna2Button();
-            this.mainContentPanel = new System.Windows.Forms.Panel();
+            this.sidebarPanel = new Guna2Panel();
+            this.btnCreateCategory = new Guna2Button();
+            this.btnCreateItem = new Guna2Button();
+            this.btnBilling = new Guna2Button();
+            this.btnInventory = new Guna2Button();
+            this.btnSetBillSavePath = new Guna2Button();
+            this.mainContentPanel = new Panel();
             this.sidebarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -25,12 +33,26 @@ namespace ims
             this.sidebarPanel.Controls.Add(this.btnCreateCategory);
             this.sidebarPanel.Controls.Add(this.btnCreateItem);
             this.sidebarPanel.Controls.Add(this.btnInventory);
+            this.sidebarPanel.Controls.Add(this.btnBilling);
+            this.sidebarPanel.Controls.Add(this.btnSetBillSavePath);
             this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.sidebarPanel.Location = new System.Drawing.Point(0, 0);
             this.sidebarPanel.Name = "sidebarPanel";
             this.sidebarPanel.Size = new System.Drawing.Size(200, 244);
-            this.sidebarPanel.TabIndex = 1;
+            this.sidebarPanel.TabIndex = 0;
+            // 
+            // btnBilling
+            // 
+            this.btnBilling.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBilling.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnBilling.ForeColor = System.Drawing.Color.White;
+            this.btnBilling.Location = new System.Drawing.Point(0, 135);
+            this.btnBilling.Name = "btnBilling";
+            this.btnBilling.Size = new System.Drawing.Size(200, 45);
+            this.btnBilling.TabIndex = 3;
+            this.btnBilling.Text = "Billing";
+            this.btnBilling.Click += new System.EventHandler(this.BtnBilling_Click);
             // 
             // btnCreateCategory
             // 
@@ -67,6 +89,18 @@ namespace ims
             this.btnInventory.TabIndex = 2;
             this.btnInventory.Text = "Inventory";
             this.btnInventory.Click += new System.EventHandler(this.BtnInventory_Click);
+            //
+            // btnSetBillSavePath
+            //
+            this.btnSetBillSavePath.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSetBillSavePath.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSetBillSavePath.ForeColor = System.Drawing.Color.White;
+            this.btnSetBillSavePath.Location = new System.Drawing.Point(0, 199);
+            this.btnSetBillSavePath.Name = "btnSetBillSavePath";
+            this.btnSetBillSavePath.Size = new System.Drawing.Size(200, 45);
+            this.btnSetBillSavePath.TabIndex = 4;
+            this.btnSetBillSavePath.Text = "Set Bill Save Path";
+            this.btnSetBillSavePath.Click += new System.EventHandler(this.BtnSetBillSavePath_Click);
             // 
             // mainContentPanel
             // 
@@ -88,7 +122,6 @@ namespace ims
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.sidebarPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
     }
 }

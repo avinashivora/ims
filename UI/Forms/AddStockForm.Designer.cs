@@ -21,12 +21,12 @@ namespace ims.UI.Forms
 
         private void InitializeComponent()
         {
-            this.numQuantity = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblItemName = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblCurrentStock = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblQuantityToAdd = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.numQuantity = new Guna2NumericUpDown();
+            this.btnSave = new Guna2Button();
+            this.lblTitle = new Guna2HtmlLabel();
+            this.lblItemName = new Guna2HtmlLabel();
+            this.lblCurrentStock = new Guna2HtmlLabel();
+            this.lblQuantityToAdd = new Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
 
             this.SuspendLayout();

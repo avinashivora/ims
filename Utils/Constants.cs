@@ -10,5 +10,6 @@ namespace ims.Utils
         public const string ItemCollection = "items";
         public const string OrganizationCollection = "organizations";
         public const string UserCollection = "users";
+        public const string BillCollection = "bills";
     }
 }

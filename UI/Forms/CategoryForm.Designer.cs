@@ -18,9 +18,9 @@ namespace ims.UI.Forms
 
         private void InitializeComponent()
         {
-            this.txtCategoryName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtCategoryName = new Guna2TextBox();
+            this.btnSave = new Guna2Button();
+            this.lblTitle = new Guna2HtmlLabel();
 
             this.SuspendLayout();
 

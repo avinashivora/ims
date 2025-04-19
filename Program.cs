@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using ims.UI.Pages;
+using ims.UI.Forms;
 using ims.Utils;
 
 namespace ims

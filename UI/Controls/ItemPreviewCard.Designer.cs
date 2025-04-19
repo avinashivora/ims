@@ -1,17 +1,18 @@
 ﻿using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace ims.UI.Controls
 {
     partial class ItemPreviewCard
     {
         private System.ComponentModel.IContainer components = null;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblName;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblDescription;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblQuantity;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblPrice;
-        private Guna.UI2.WinForms.Guna2PictureBox pictureBox;
-        private Guna.UI2.WinForms.Guna2Button btnDeleteItem;
-        private Guna.UI2.WinForms.Guna2Button btnAddStock;
+        private Guna2HtmlLabel lblName;
+        private Guna2HtmlLabel lblDescription;
+        private Guna2HtmlLabel lblQuantity;
+        private Guna2HtmlLabel lblPrice;
+        private Guna2PictureBox pictureBox;
+        private Guna2Button btnDeleteItem;
+        private Guna2Button btnAddStock;
 
         protected override void Dispose(bool disposing)
         {
@@ -22,13 +23,13 @@ namespace ims.UI.Controls
 
         private void InitializeComponent()
         {
-            this.lblName = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblDescription = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblQuantity = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.pictureBox = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.lblPrice = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btnDeleteItem = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAddStock = new Guna.UI2.WinForms.Guna2Button();
+            this.lblName = new Guna2HtmlLabel();
+            this.lblDescription = new Guna2HtmlLabel();
+            this.lblQuantity = new Guna2HtmlLabel();
+            this.pictureBox = new Guna2PictureBox();
+            this.lblPrice = new Guna2HtmlLabel();
+            this.btnDeleteItem = new Guna2Button();
+            this.btnAddStock = new Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             //

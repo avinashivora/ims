@@ -40,7 +40,7 @@ namespace ims.UI.Controls
             cmbCategory.DisplayMember = "Name";
             cmbCategory.ValueMember = "Id";
 
-            cmbBarcodeType.Items.AddRange(["Code93", "Code128"]);
+            cmbBarcodeType.Items.AddRange(BarcodeHelper.GetSupportedBarcodeTypesList());
             cmbBarcodeType.SelectedItem = "Code93";
             cmbBarcodeType.SelectedIndexChanged += (_, _) => _selectedBarcodeType = cmbBarcodeType.SelectedItem?.ToString();
 

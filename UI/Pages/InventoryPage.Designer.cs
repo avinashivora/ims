@@ -1,11 +1,12 @@
 ﻿using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace ims.UI.Pages
 {
     partial class InventoryPage
     {
         private System.ComponentModel.IContainer components = null;
-        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
+        private Guna2TextBox txtSearch;
         private FlowLayoutPanel flowLayoutPanelCategories;
 
         protected override void Dispose(bool disposing)
@@ -17,7 +18,7 @@ namespace ims.UI.Pages
 
         private void InitializeComponent()
         {
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSearch = new Guna2TextBox();
             this.flowLayoutPanelCategories = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 

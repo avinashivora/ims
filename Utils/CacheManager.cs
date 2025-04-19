@@ -5,6 +5,7 @@
         public static string CurrentOrganizationId { get; private set; }
         public static string CurrentUserId { get; private set; }
         public static string CurrentUserRole { get; private set; }
+        public static string BillSavePath { get; set; }
 
         public static void SetSession(string orgId, string userId, string userRole)
         {
@@ -18,6 +19,7 @@
             CurrentOrganizationId = null;
             CurrentUserId = null;
             CurrentUserRole = null;
+            BillSavePath = null;
         }
 
         public static bool IsLoggedIn => !string.IsNullOrEmpty(CurrentUserId);

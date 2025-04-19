@@ -32,18 +32,18 @@ namespace ims.UI.Controls
 
         private void InitializeComponent()
         {
-            this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtDescription = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtPrice = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtName = new Guna2TextBox();
+            this.txtDescription = new Guna2TextBox();
+            this.txtPrice = new Guna2TextBox();
             this.numQuantity = new System.Windows.Forms.NumericUpDown();
-            this.cmbCategory = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cmbBarcodeType = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDownloadBarcode = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAddImage = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDeleteImage = new Guna.UI2.WinForms.Guna2Button();
-            this.btnNext = new Guna.UI2.WinForms.Guna2Button();
-            this.btnPrev = new Guna.UI2.WinForms.Guna2Button();
+            this.cmbCategory = new Guna2ComboBox();
+            this.cmbBarcodeType = new Guna2ComboBox();
+            this.btnSave = new Guna2Button();
+            this.btnDownloadBarcode = new Guna2Button();
+            this.btnAddImage = new Guna2Button();
+            this.btnDeleteImage = new Guna2Button();
+            this.btnNext = new Guna2Button();
+            this.btnPrev = new Guna2Button();
             this.pbBarcode = new System.Windows.Forms.PictureBox();
             this.pbImagePreview = new System.Windows.Forms.PictureBox();
             this.lblImageIndex = new System.Windows.Forms.Label();

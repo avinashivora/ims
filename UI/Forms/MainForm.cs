@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
-using ims.UI.Forms;
 using ims.UI.Pages;
+using ims.Utils;
 
-namespace ims
+namespace ims.UI.Forms
 {
     public partial class MainForm : Form
     {
         private InventoryPage inventoryPage;
+        private BillingForm billingForm;
 
         public MainForm()
         {
@@ -60,6 +61,34 @@ namespace ims
         private void BtnInventory_Click(object sender, EventArgs e)
         {
             LoadInventoryPage();
+        }
+
+        private void BtnBilling_Click(object sender, EventArgs e)
+        {
+            if (billingForm == null || billingForm.IsDisposed)
+            {
+                billingForm = new BillingForm();
+                billingForm.FormClosed += async (s, args) =>
+                {
+                    // Refresh inventory after billing operations
+                    if (inventoryPage != null && !inventoryPage.IsDisposed)
+                    {
+                        await inventoryPage.ReloadAllCategoriesAsync();
+                    }
+                };
+            }
+            billingForm.Show();
+            billingForm.BringToFront();
+        }
+
+        private void BtnSetBillSavePath_Click(object sender, EventArgs e)
+        {
+            using var folderBrowser = new FolderBrowserDialog();
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                CacheManager.BillSavePath = folderBrowser.SelectedPath;
+                MessageBox.Show("Bill save path set to: " + CacheManager.BillSavePath);
+            }
         }
     }
 }
