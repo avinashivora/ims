@@ -243,6 +243,9 @@
     <EmbeddedResource Include="UI\Controls\ItemPreviewCard.resx">
       <DependentUpon>ItemPreviewCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\UserListControl.resx">
+      <DependentUpon>UserListControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\AddStockForm.resx">
       <DependentUpon>AddStockForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -257,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\PasswordResetForm.resx">
       <DependentUpon>PasswordResetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Pages\CategoriesPage.resx">
       <DependentUpon>CategoriesPage.cs</DependentUpon>

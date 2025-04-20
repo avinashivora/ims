@@ -32,25 +32,25 @@ namespace ims.UI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlRequestReset = new Guna.UI2.WinForms.Guna2Panel();
-            this.lnkBack = new System.Windows.Forms.LinkLabel();
-            this.btnRequestReset = new Guna.UI2.WinForms.Guna2Button();
-            this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblResetInstructions = new System.Windows.Forms.Label();
-            this.lblResetTitle = new System.Windows.Forms.Label();
-            this.pnlVerifyCode = new Guna.UI2.WinForms.Guna2Panel();
-            this.lnkBackToRequest = new System.Windows.Forms.LinkLabel();
-            this.btnVerifyCode = new Guna.UI2.WinForms.Guna2Button();
-            this.txtResetCode = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblVerifyInstructions = new System.Windows.Forms.Label();
-            this.lblVerifyTitle = new System.Windows.Forms.Label();
-            this.pnlResetPassword = new Guna.UI2.WinForms.Guna2Panel();
-            this.lnkBackToVerify = new System.Windows.Forms.LinkLabel();
-            this.txtConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnResetPassword = new Guna.UI2.WinForms.Guna2Button();
-            this.txtNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblNewPasswordInstructions = new System.Windows.Forms.Label();
-            this.lblNewPasswordTitle = new System.Windows.Forms.Label();
+            this.pnlRequestReset = new Guna2Panel();
+            this.lnkBack = new LinkLabel();
+            this.btnRequestReset = new Guna2Button();
+            this.txtEmail = new Guna2TextBox();
+            this.lblResetInstructions = new Label();
+            this.lblResetTitle = new Label();
+            this.pnlVerifyCode = new Guna2Panel();
+            this.lnkBackToRequest = new LinkLabel();
+            this.btnVerifyCode = new Guna2Button();
+            this.txtResetCode = new Guna2TextBox();
+            this.lblVerifyInstructions = new Label();
+            this.lblVerifyTitle = new Label();
+            this.pnlResetPassword = new Guna2Panel();
+            this.lnkBackToVerify = new LinkLabel();
+            this.txtConfirmPassword = new Guna2TextBox();
+            this.btnResetPassword = new Guna2Button();
+            this.txtNewPassword = new Guna2TextBox();
+            this.lblNewPasswordInstructions = new Label();
+            this.lblNewPasswordTitle = new Label();
             this.pnlRequestReset.SuspendLayout();
             this.pnlVerifyCode.SuspendLayout();
             this.pnlResetPassword.SuspendLayout();
@@ -66,7 +66,7 @@ namespace ims.UI.Forms
             this.pnlRequestReset.Controls.Add(this.lblResetTitle);
             this.pnlRequestReset.FillColor = System.Drawing.Color.White;
             this.pnlRequestReset.Location = new System.Drawing.Point(75, 77);
-            this.pnlRequestReset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlRequestReset.Margin = new Padding(4, 5, 4, 5);
             this.pnlRequestReset.Name = "pnlRequestReset";
             this.pnlRequestReset.Size = new System.Drawing.Size(600, 538);
             this.pnlRequestReset.TabIndex = 0;
@@ -76,13 +76,13 @@ namespace ims.UI.Forms
             this.lnkBack.AutoSize = true;
             this.lnkBack.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lnkBack.Location = new System.Drawing.Point(225, 462);
-            this.lnkBack.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lnkBack.Margin = new Padding(4, 0, 4, 0);
             this.lnkBack.Name = "lnkBack";
             this.lnkBack.Size = new System.Drawing.Size(119, 25);
             this.lnkBack.TabIndex = 4;
             this.lnkBack.TabStop = true;
             this.lnkBack.Text = "Back to Login";
-            this.lnkBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkBack_LinkClicked);
+            this.lnkBack.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LnkBack_LinkClicked);
             // 
             // btnRequestReset
             // 
@@ -95,7 +95,7 @@ namespace ims.UI.Forms
             this.btnRequestReset.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnRequestReset.ForeColor = System.Drawing.Color.White;
             this.btnRequestReset.Location = new System.Drawing.Point(75, 385);
-            this.btnRequestReset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRequestReset.Margin = new Padding(4, 5, 4, 5);
             this.btnRequestReset.Name = "btnRequestReset";
             this.btnRequestReset.Size = new System.Drawing.Size(450, 62);
             this.btnRequestReset.TabIndex = 3;
@@ -105,7 +105,7 @@ namespace ims.UI.Forms
             // txtEmail
             // 
             this.txtEmail.BorderRadius = 5;
-            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmail.Cursor = Cursors.IBeam;
             this.txtEmail.DefaultText = "";
             this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -115,7 +115,7 @@ namespace ims.UI.Forms
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.Location = new System.Drawing.Point(75, 277);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtEmail.Margin = new Padding(6, 8, 6, 8);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceholderText = "Enter your email";
             this.txtEmail.SelectedText = "";
@@ -126,7 +126,7 @@ namespace ims.UI.Forms
             // 
             this.lblResetInstructions.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblResetInstructions.Location = new System.Drawing.Point(75, 138);
-            this.lblResetInstructions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblResetInstructions.Margin = new Padding(4, 0, 4, 0);
             this.lblResetInstructions.Name = "lblResetInstructions";
             this.lblResetInstructions.Size = new System.Drawing.Size(450, 123);
             this.lblResetInstructions.TabIndex = 1;
@@ -137,7 +137,7 @@ namespace ims.UI.Forms
             // 
             this.lblResetTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblResetTitle.Location = new System.Drawing.Point(75, 46);
-            this.lblResetTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblResetTitle.Margin = new Padding(4, 0, 4, 0);
             this.lblResetTitle.Name = "lblResetTitle";
             this.lblResetTitle.Size = new System.Drawing.Size(450, 77);
             this.lblResetTitle.TabIndex = 0;
@@ -154,7 +154,7 @@ namespace ims.UI.Forms
             this.pnlVerifyCode.Controls.Add(this.lblVerifyTitle);
             this.pnlVerifyCode.FillColor = System.Drawing.Color.White;
             this.pnlVerifyCode.Location = new System.Drawing.Point(75, 77);
-            this.pnlVerifyCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlVerifyCode.Margin = new Padding(4, 5, 4, 5);
             this.pnlVerifyCode.Name = "pnlVerifyCode";
             this.pnlVerifyCode.Size = new System.Drawing.Size(600, 538);
             this.pnlVerifyCode.TabIndex = 1;
@@ -165,13 +165,13 @@ namespace ims.UI.Forms
             this.lnkBackToRequest.AutoSize = true;
             this.lnkBackToRequest.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lnkBackToRequest.Location = new System.Drawing.Point(225, 462);
-            this.lnkBackToRequest.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lnkBackToRequest.Margin = new Padding(4, 0, 4, 0);
             this.lnkBackToRequest.Name = "lnkBackToRequest";
             this.lnkBackToRequest.Size = new System.Drawing.Size(138, 25);
             this.lnkBackToRequest.TabIndex = 4;
             this.lnkBackToRequest.TabStop = true;
             this.lnkBackToRequest.Text = "Back to Request";
-            this.lnkBackToRequest.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkBackToRequest_LinkClicked);
+            this.lnkBackToRequest.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LnkBackToRequest_LinkClicked);
             // 
             // btnVerifyCode
             // 
@@ -184,7 +184,7 @@ namespace ims.UI.Forms
             this.btnVerifyCode.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnVerifyCode.ForeColor = System.Drawing.Color.White;
             this.btnVerifyCode.Location = new System.Drawing.Point(75, 385);
-            this.btnVerifyCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVerifyCode.Margin = new Padding(4, 5, 4, 5);
             this.btnVerifyCode.Name = "btnVerifyCode";
             this.btnVerifyCode.Size = new System.Drawing.Size(450, 62);
             this.btnVerifyCode.TabIndex = 3;
@@ -194,7 +194,7 @@ namespace ims.UI.Forms
             // txtResetCode
             // 
             this.txtResetCode.BorderRadius = 5;
-            this.txtResetCode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtResetCode.Cursor = Cursors.IBeam;
             this.txtResetCode.DefaultText = "";
             this.txtResetCode.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtResetCode.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -204,7 +204,7 @@ namespace ims.UI.Forms
             this.txtResetCode.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtResetCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtResetCode.Location = new System.Drawing.Point(75, 277);
-            this.txtResetCode.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtResetCode.Margin = new Padding(6, 8, 6, 8);
             this.txtResetCode.MaxLength = 6;
             this.txtResetCode.Name = "txtResetCode";
             this.txtResetCode.PlaceholderText = "Enter 6-digit code";
@@ -216,7 +216,7 @@ namespace ims.UI.Forms
             // 
             this.lblVerifyInstructions.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblVerifyInstructions.Location = new System.Drawing.Point(75, 138);
-            this.lblVerifyInstructions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVerifyInstructions.Margin = new Padding(4, 0, 4, 0);
             this.lblVerifyInstructions.Name = "lblVerifyInstructions";
             this.lblVerifyInstructions.Size = new System.Drawing.Size(450, 123);
             this.lblVerifyInstructions.TabIndex = 1;
@@ -228,7 +228,7 @@ namespace ims.UI.Forms
             // 
             this.lblVerifyTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblVerifyTitle.Location = new System.Drawing.Point(75, 46);
-            this.lblVerifyTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVerifyTitle.Margin = new Padding(4, 0, 4, 0);
             this.lblVerifyTitle.Name = "lblVerifyTitle";
             this.lblVerifyTitle.Size = new System.Drawing.Size(450, 77);
             this.lblVerifyTitle.TabIndex = 0;
@@ -246,7 +246,7 @@ namespace ims.UI.Forms
             this.pnlResetPassword.Controls.Add(this.lblNewPasswordTitle);
             this.pnlResetPassword.FillColor = System.Drawing.Color.White;
             this.pnlResetPassword.Location = new System.Drawing.Point(75, 77);
-            this.pnlResetPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlResetPassword.Margin = new Padding(4, 5, 4, 5);
             this.pnlResetPassword.Name = "pnlResetPassword";
             this.pnlResetPassword.Size = new System.Drawing.Size(600, 615);
             this.pnlResetPassword.TabIndex = 2;
@@ -254,24 +254,24 @@ namespace ims.UI.Forms
             // 
             // lnkBackToVerify
             // 
-            this.lnkBackToVerify.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkBackToVerify.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left)
+            | AnchorStyles.Right)));
             this.lnkBackToVerify.AutoSize = true;
             this.lnkBackToVerify.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lnkBackToVerify.Location = new System.Drawing.Point(225, 538);
-            this.lnkBackToVerify.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lnkBackToVerify.Margin = new Padding(4, 0, 4, 0);
             this.lnkBackToVerify.Name = "lnkBackToVerify";
             this.lnkBackToVerify.Size = new System.Drawing.Size(162, 25);
             this.lnkBackToVerify.TabIndex = 5;
             this.lnkBackToVerify.TabStop = true;
             this.lnkBackToVerify.Text = "Back to Verification";
             this.lnkBackToVerify.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lnkBackToVerify.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkBackToVerify_LinkClicked);
+            this.lnkBackToVerify.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LnkBackToVerify_LinkClicked);
             // 
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.BorderRadius = 5;
-            this.txtConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtConfirmPassword.Cursor = Cursors.IBeam;
             this.txtConfirmPassword.DefaultText = "";
             this.txtConfirmPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtConfirmPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -281,7 +281,7 @@ namespace ims.UI.Forms
             this.txtConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtConfirmPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtConfirmPassword.Location = new System.Drawing.Point(75, 354);
-            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtConfirmPassword.Margin = new Padding(6, 8, 6, 8);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '●';
             this.txtConfirmPassword.PlaceholderText = "Confirm new password";
@@ -300,7 +300,7 @@ namespace ims.UI.Forms
             this.btnResetPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnResetPassword.ForeColor = System.Drawing.Color.White;
             this.btnResetPassword.Location = new System.Drawing.Point(75, 462);
-            this.btnResetPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnResetPassword.Margin = new Padding(4, 5, 4, 5);
             this.btnResetPassword.Name = "btnResetPassword";
             this.btnResetPassword.Size = new System.Drawing.Size(450, 62);
             this.btnResetPassword.TabIndex = 3;
@@ -310,7 +310,7 @@ namespace ims.UI.Forms
             // txtNewPassword
             // 
             this.txtNewPassword.BorderRadius = 5;
-            this.txtNewPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNewPassword.Cursor = Cursors.IBeam;
             this.txtNewPassword.DefaultText = "";
             this.txtNewPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtNewPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -320,7 +320,7 @@ namespace ims.UI.Forms
             this.txtNewPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNewPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNewPassword.Location = new System.Drawing.Point(75, 277);
-            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtNewPassword.Margin = new Padding(6, 8, 6, 8);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '●';
             this.txtNewPassword.PlaceholderText = "Enter new password";
@@ -332,7 +332,7 @@ namespace ims.UI.Forms
             // 
             this.lblNewPasswordInstructions.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblNewPasswordInstructions.Location = new System.Drawing.Point(75, 138);
-            this.lblNewPasswordInstructions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNewPasswordInstructions.Margin = new Padding(4, 0, 4, 0);
             this.lblNewPasswordInstructions.Name = "lblNewPasswordInstructions";
             this.lblNewPasswordInstructions.Size = new System.Drawing.Size(450, 123);
             this.lblNewPasswordInstructions.TabIndex = 1;
@@ -343,7 +343,7 @@ namespace ims.UI.Forms
             // 
             this.lblNewPasswordTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblNewPasswordTitle.Location = new System.Drawing.Point(75, 46);
-            this.lblNewPasswordTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNewPasswordTitle.Margin = new Padding(4, 0, 4, 0);
             this.lblNewPasswordTitle.Name = "lblNewPasswordTitle";
             this.lblNewPasswordTitle.Size = new System.Drawing.Size(450, 77);
             this.lblNewPasswordTitle.TabIndex = 0;
@@ -353,17 +353,17 @@ namespace ims.UI.Forms
             // PasswordResetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(750, 692);
             this.Controls.Add(this.pnlRequestReset);
             this.Controls.Add(this.pnlVerifyCode);
             this.Controls.Add(this.pnlResetPassword);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.Margin = new Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "PasswordResetForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Text = "Reset Password";
             this.pnlRequestReset.ResumeLayout(false);
             this.pnlRequestReset.PerformLayout();

@@ -20,7 +20,8 @@ namespace ims.UI.Forms
             Registration,
             PasswordReset,
             DeleteAccount,
-            DeleteOrganization
+            DeleteOrganization,
+            InvitedUser
         }
 
         public CodeVerificationForm(string email, VerificationType verificationType)
@@ -55,6 +56,10 @@ namespace ims.UI.Forms
                 case VerificationType.DeleteOrganization:
                     lblTitle.Text = "Delete Organization";
                     lblInstructions.Text = $"Please enter the 6-digit code sent to {_email} to confirm organization deletion.";
+                    break;
+                case VerificationType.InvitedUser:
+                    lblTitle.Text = "Accept Invitation";
+                    lblInstructions.Text = $"Please enter the 6-digit code sent to {_email} to accept the invitation.";
                     break;
             }
         }
@@ -123,27 +128,41 @@ namespace ims.UI.Forms
 
         private void BtnResendCode_Click(object sender, EventArgs e)
         {
+            bool send = false;
             try
             {
                 switch (_verificationType)
                 {
                     case VerificationType.Registration:
                         _ = _authService.ResendRegistrationCodeAsync(_email);
+                        send = true;
                         break;
                     case VerificationType.PasswordReset:
                         _ = _authService.RequestPasswordResetAsync(_email);
+                        send = true;
                         break;
                     case VerificationType.DeleteAccount:
                         _ = _userService.SendAccountDeletionCodeAsync(_email);
+                        send = true;
                         break;
                     case VerificationType.DeleteOrganization:
                         var orgService = ServiceResolver.GetOrganizationService();
                         _ = orgService.SendOrganizationDeletionCodeAsync(_email);
+                        send = true;
+                        break;
+                    case VerificationType.InvitedUser:
+                        send = false;
                         break;
                 }
-
-                MessageBox.Show($"A new verification code has been sent to {_email}.",
-                    "Code Sent", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (!send)
+                {
+                    MessageBox.Show("Failed to send the code.", "Ask for the invite code again from the organization management.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show($"A new verification code has been sent to {_email}.", "Code Sent", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {

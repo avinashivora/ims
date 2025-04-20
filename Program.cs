@@ -17,7 +17,7 @@ namespace ims
             ShowLoginForm();
         }
 
-        private static void ShowLoginForm()
+        public static void ShowLoginForm()
         {
             using var loginForm = new LoginForm();
             // Subscribe to events
@@ -30,11 +30,23 @@ namespace ims
             loginForm.RegisterRequested += (sender, e) =>
             {
                 // Open the register form
-                using var registerForm = new RegisterForm();
+                using var registerForm = new RegisterForm(false);
                 if (registerForm.ShowDialog() == DialogResult.OK)
                 {
                     // If registration was successful, return to login form
-                    MessageBox.Show("Registration successful! Please check your email for verification.",
+                    MessageBox.Show("Registration successful!",
+                        "Registration Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            };
+
+            loginForm.InvitedUserRequested += (sender, e) =>
+            {
+                // Open the register form in invited user mode
+                using var registerForm = new RegisterForm(true);
+                if (registerForm.ShowDialog() == DialogResult.OK)
+                {
+                    // If registration was successful, return to login form
+                    MessageBox.Show("Registration successful! You can now log in.",
                         "Registration Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             };

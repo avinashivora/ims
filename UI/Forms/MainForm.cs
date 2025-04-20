@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using ims.Models;
+using ims.UI.Controls;
 using ims.UI.Pages;
 using ims.Utils;
 
@@ -9,11 +11,22 @@ namespace ims.UI.Forms
     {
         private InventoryPage inventoryPage;
         private BillingForm billingForm;
+        private UserListControl userListControl;
 
         public MainForm()
         {
             InitializeComponent();
+            SetupRoleBasedUI();
             LoadInventoryPage();
+        }
+
+        private void SetupRoleBasedUI()
+        {
+            // Get current user role from session
+            var userRole = CacheManager.CurrentUserRole;
+
+            // Show User Management button only for Admin and Manager roles
+            btnUserManagement.Visible = (userRole == UserRole.Admin || userRole == UserRole.Manager);
         }
 
         private void LoadInventoryPage()
@@ -88,6 +101,56 @@ namespace ims.UI.Forms
             {
                 CacheManager.BillSavePath = folderBrowser.SelectedPath;
                 MessageBox.Show("Bill save path set to: " + CacheManager.BillSavePath);
+            }
+        }
+
+        private void BtnUserManagement_Click(object sender, EventArgs e)
+        {
+            LoadUserManagementPage();
+        }
+
+        private void LoadUserManagementPage()
+        {
+            if (userListControl == null || userListControl.IsDisposed)
+            {
+                userListControl = new UserListControl
+                {
+                    Dock = DockStyle.Fill
+                };
+                this.mainContentPanel.Controls.Add(userListControl);
+            }
+            userListControl.BringToFront();
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            // Ask for confirmation
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to logout?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Clear session data
+                CacheManager.ClearSession();
+
+                // Close current form
+                this.Close();
+
+                // Show login form
+                using var loginForm = new LoginForm();
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    // User logged back in, show main form again
+                    Application.Run(new MainForm());
+                }
+                else
+                {
+                    // User canceled login, exit application
+                    Application.Exit();
+                }
             }
         }
     }

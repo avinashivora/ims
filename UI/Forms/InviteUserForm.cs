@@ -35,7 +35,7 @@ namespace ims.UI.Forms
             foreach (UserRole role in Enum.GetValues(typeof(UserRole)))
             {
                 // Only add roles that the current user can assign
-                if (RoleUtils.CanPromoteToRole(currentUserRole, role))
+                if (RoleUtils.CanPromoteToRole(currentUserRole, role) && role != UserRole.LoggedOut)
                 {
                     cmbRole.Items.Add(role);
                 }

@@ -1,4 +1,7 @@
-﻿namespace ims.UI.Controls
+﻿using System.Windows.Forms;
+using Guna.UI2.WinForms;
+
+namespace ims.UI.Controls
 {
     partial class UserFormControl
     {
@@ -28,17 +31,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblEmail = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblRole = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.cmbRole = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lblPassword = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.panelMain = new Guna.UI2.WinForms.Guna2Panel();
-            this.panelButtons = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTitle = new Guna2HtmlLabel();
+            this.lblEmail = new Guna2HtmlLabel();
+            this.txtEmail = new Guna2TextBox();
+            this.lblRole = new Guna2HtmlLabel();
+            this.cmbRole = new Guna2ComboBox();
+            this.lblPassword = new Guna2HtmlLabel();
+            this.txtPassword = new Guna2TextBox();
+            this.btnSave = new Guna2Button();
+            this.btnCancel = new Guna2Button();
+            this.panelMain = new Guna2Panel();
+            this.panelButtons = new Guna2Panel();
             this.panelMain.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.SuspendLayout();
@@ -67,10 +70,9 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmail.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left) | AnchorStyles.Right)));
             this.txtEmail.BorderRadius = 3;
-            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmail.Cursor = Cursors.IBeam;
             this.txtEmail.DefaultText = "";
             this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -80,7 +82,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.Location = new System.Drawing.Point(20, 95);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEmail.Margin = new Padding(3, 4, 3, 4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderText = "Enter email address";
@@ -101,12 +103,12 @@
             // 
             // cmbRole
             // 
-            this.cmbRole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbRole.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left)
+            | AnchorStyles.Right)));
             this.cmbRole.BackColor = System.Drawing.Color.Transparent;
             this.cmbRole.BorderRadius = 3;
-            this.cmbRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRole.DrawMode = DrawMode.OwnerDrawFixed;
+            this.cmbRole.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cmbRole.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbRole.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -131,10 +133,10 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left)
+            | AnchorStyles.Right)));
             this.txtPassword.BorderRadius = 3;
-            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassword.Cursor = Cursors.IBeam;
             this.txtPassword.DefaultText = "";
             this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -144,7 +146,7 @@
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.Location = new System.Drawing.Point(20, 245);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPassword.Margin = new Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.PlaceholderText = "Enter new password";
@@ -156,7 +158,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
             this.btnSave.BorderRadius = 3;
             this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -174,7 +176,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
             this.btnCancel.BorderRadius = 3;
             this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -192,9 +194,9 @@
             // 
             // panelMain
             // 
-            this.panelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMain.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
+            | AnchorStyles.Left)
+            | AnchorStyles.Right)));
             this.panelMain.BackColor = System.Drawing.Color.Transparent;
             this.panelMain.BorderRadius = 5;
             this.panelMain.Controls.Add(this.lblTitle);
@@ -218,7 +220,7 @@
             this.panelButtons.BackColor = System.Drawing.Color.Transparent;
             this.panelButtons.Controls.Add(this.btnCancel);
             this.panelButtons.Controls.Add(this.btnSave);
-            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelButtons.Dock = DockStyle.Bottom;
             this.panelButtons.Location = new System.Drawing.Point(0, 320);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(410, 60);
@@ -227,7 +229,7 @@
             // UserFormControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelButtons);
@@ -242,16 +244,16 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblEmail;
-        private Guna.UI2.WinForms.Guna2TextBox txtEmail;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblRole;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbRole;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblPassword;
-        private Guna.UI2.WinForms.Guna2TextBox txtPassword;
-        private Guna.UI2.WinForms.Guna2Button btnSave;
-        private Guna.UI2.WinForms.Guna2Button btnCancel;
-        private Guna.UI2.WinForms.Guna2Panel panelMain;
-        private Guna.UI2.WinForms.Guna2Panel panelButtons;
+        private Guna2HtmlLabel lblTitle;
+        private Guna2HtmlLabel lblEmail;
+        private Guna2TextBox txtEmail;
+        private Guna2HtmlLabel lblRole;
+        private Guna2ComboBox cmbRole;
+        private Guna2HtmlLabel lblPassword;
+        private Guna2TextBox txtPassword;
+        private Guna2Button btnSave;
+        private Guna2Button btnCancel;
+        private Guna2Panel panelMain;
+        private Guna2Panel panelButtons;
     }
 }

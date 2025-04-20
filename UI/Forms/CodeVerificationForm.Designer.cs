@@ -1,4 +1,5 @@
-﻿using Guna.UI2.WinForms;
+﻿using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace ims.UI.Forms
 {
@@ -81,7 +82,7 @@ namespace ims.UI.Forms
             // txtVerificationCode
             // 
             this.txtVerificationCode.BorderRadius = 5;
-            this.txtVerificationCode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtVerificationCode.Cursor = Cursors.IBeam;
             this.txtVerificationCode.DefaultText = "";
             this.txtVerificationCode.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtVerificationCode.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -92,7 +93,7 @@ namespace ims.UI.Forms
             this.txtVerificationCode.ForeColor = System.Drawing.Color.Black;
             this.txtVerificationCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtVerificationCode.Location = new System.Drawing.Point(30, 155);
-            this.txtVerificationCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVerificationCode.Margin = new Padding(4, 4, 4, 4);
             this.txtVerificationCode.MaxLength = 6;
             this.txtVerificationCode.Name = "txtVerificationCode";
             this.txtVerificationCode.PasswordChar = '\0';
@@ -100,7 +101,7 @@ namespace ims.UI.Forms
             this.txtVerificationCode.SelectedText = "";
             this.txtVerificationCode.Size = new System.Drawing.Size(380, 50);
             this.txtVerificationCode.TabIndex = 3;
-            this.txtVerificationCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtVerificationCode.TextAlign = HorizontalAlignment.Center;
             // 
             // btnVerify
             // 
@@ -164,7 +165,7 @@ namespace ims.UI.Forms
             this.guna2Panel1.Controls.Add(this.lblVerificationCode);
             this.guna2Panel1.Controls.Add(this.btnVerify);
             this.guna2Panel1.Controls.Add(this.txtVerificationCode);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel1.Dock = DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(440, 350);
@@ -179,13 +180,13 @@ namespace ims.UI.Forms
             // CodeVerificationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(440, 350);
             this.Controls.Add(this.guna2Panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = FormBorderStyle.None;
             this.Name = "CodeVerificationForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "Verification Code";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();

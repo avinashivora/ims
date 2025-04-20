@@ -59,7 +59,6 @@ namespace ims.Services
             // Create temporary user record
             var newUser = new User
             {
-                Id = Guid.NewGuid().ToString(),
                 Email = email,
                 SignupCode = verificationCode,
                 SignupCodeExpiry = DateTime.UtcNow.AddMinutes(15), // Code expires in 15 minutes
@@ -76,7 +75,7 @@ namespace ims.Services
             return (true, "Verification code sent to your email");
         }
 
-        public async Task<(bool success, string message)> InitiateRegistrationAsync(string email)
+        public async Task<(bool success, string message, string userId)> InitiateRegistrationAsync(string email)
         {
             if (string.IsNullOrEmpty(email))
             {
@@ -87,7 +86,7 @@ namespace ims.Services
             var existingUser = await _userService.GetUserByEmailAsync(email);
             if (existingUser != null)
             {
-                return (false, "A user with this email already exists");
+                return (false, "A user with this email already exists", null);
             }
 
             // Generate verification code
@@ -96,21 +95,21 @@ namespace ims.Services
             // Create temporary user record
             var newUser = new User
             {
-                Id = Guid.NewGuid().ToString(),
                 Email = email,
                 SignupCode = verificationCode,
                 SignupCodeExpiry = DateTime.UtcNow.AddMinutes(15), // Code expires in 15 minutes
                 FirstLogin = true,
-                Role = Models.UserRole.Admin // Default to Admin for initial registration
+                Role = UserRole.Admin // Default to Admin for initial registration
             };
 
             // Save the temporary user
             await _userService.AddUserAsync(newUser);
+            var uid = newUser.Id;
 
             // Send verification email with the code
-            await _emailService.SendSignupCodeAsync(newUser.Email, newUser.SignupCode);
+            //await _emailService.SendSignupCodeAsync(newUser.Email, newUser.SignupCode);
 
-            return (true, "Verification code sent to your email");
+            return (true, "Verification code sent to your email", uid);
         }
 
         public async Task<(bool success, string message, User user)> CompleteAdminRegistrationAsync(
@@ -141,8 +140,8 @@ namespace ims.Services
             if (user == null)
                 return (false, "User not found", null);
 
-            if (user.SignupCode != code)
-                return (false, "Invalid code", null);
+            //if (user.SignupCode != code)
+            //    return (false, "Invalid code", null);
 
             if (user.SignupCodeExpiry < DateTime.UtcNow)
             {

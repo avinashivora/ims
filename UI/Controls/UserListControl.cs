@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using ims.Models;
 using ims.Services;
+using ims.UI.Forms;
 using ims.Utils;
 
 namespace ims.UI.Controls
@@ -224,6 +225,16 @@ namespace ims.UI.Controls
 
                 dgvUsers.Rows[rowIndex].Tag = new[] { editBtn, deleteBtn };
             }
+        }
+
+        private void NewUser_Click(object sender, EventArgs e)
+        {
+            var newUserForm = new InviteUserForm();
+            newUserForm.FormClosed += async (s, args) =>
+            {
+                await RefreshUserListAsync();
+            };
+            newUserForm.ShowDialog();
         }
     }
 }

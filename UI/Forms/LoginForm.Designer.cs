@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
@@ -34,10 +35,11 @@ namespace ims.UI.Forms
         private void InitializeComponent()
         {
             this.panelMain = new Guna.UI2.WinForms.Guna2Panel();
+            this.inviteUser = new System.Windows.Forms.LinkLabel();
+            this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.linkForgotPassword = new System.Windows.Forms.LinkLabel();
             this.linkRegister = new System.Windows.Forms.LinkLabel();
             this.lblError = new System.Windows.Forms.Label();
-            this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -49,10 +51,11 @@ namespace ims.UI.Forms
             // panelMain
             // 
             this.panelMain.BorderRadius = 10;
+            this.panelMain.Controls.Add(this.inviteUser);
+            this.panelMain.Controls.Add(this.btnLogin);
             this.panelMain.Controls.Add(this.linkForgotPassword);
             this.panelMain.Controls.Add(this.linkRegister);
             this.panelMain.Controls.Add(this.lblError);
-            this.panelMain.Controls.Add(this.btnLogin);
             this.panelMain.Controls.Add(this.txtPassword);
             this.panelMain.Controls.Add(this.txtEmail);
             this.panelMain.Controls.Add(this.lblPassword);
@@ -64,6 +67,39 @@ namespace ims.UI.Forms
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(600, 692);
             this.panelMain.TabIndex = 0;
+            // 
+            // inviteUser
+            // 
+            this.inviteUser.AutoSize = true;
+            this.inviteUser.BackColor = System.Drawing.Color.Transparent;
+            this.inviteUser.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.inviteUser.Location = new System.Drawing.Point(204, 557);
+            this.inviteUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.inviteUser.Name = "inviteUser";
+            this.inviteUser.Size = new System.Drawing.Size(216, 25);
+            this.inviteUser.TabIndex = 9;
+            this.inviteUser.TabStop = true;
+            this.inviteUser.Text = "Do you have Invite Code?";
+            this.inviteUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.InvitedUser_LinkClicked);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnLogin.BorderRadius = 5;
+            this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(225, 415);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(150, 62);
+            this.btnLogin.TabIndex = 5;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // linkForgotPassword
             // 
@@ -107,30 +143,11 @@ namespace ims.UI.Forms
             this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblError.Visible = false;
             // 
-            // btnLogin
-            // 
-            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnLogin.BorderRadius = 5;
-            this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(225, 415);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(150, 62);
-            this.btnLogin.TabIndex = 5;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
-            // 
             // txtPassword
             // 
             this.txtPassword.BorderRadius = 5;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPassword.DefaultText = "";
+            this.txtPassword.DefaultText = "pass";
             this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -152,7 +169,7 @@ namespace ims.UI.Forms
             // 
             this.txtEmail.BorderRadius = 5;
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEmail.DefaultText = "";
+            this.txtEmail.DefaultText = "avinashimvora@gmail.com";
             this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -237,5 +254,6 @@ namespace ims.UI.Forms
         private Label lblError;
         private LinkLabel linkRegister;
         private LinkLabel linkForgotPassword;
+        private LinkLabel inviteUser;
     }
 }
