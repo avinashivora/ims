@@ -1,13 +1,15 @@
-﻿namespace ims.Utils
+﻿using ims.Models;
+
+namespace ims.Utils
 {
     public static class CacheManager
     {
         public static string CurrentOrganizationId { get; private set; }
         public static string CurrentUserId { get; private set; }
-        public static string CurrentUserRole { get; private set; }
+        public static UserRole CurrentUserRole { get; private set; }
         public static string BillSavePath { get; set; }
 
-        public static void SetSession(string orgId, string userId, string userRole)
+        public static void SetSession(string orgId, string userId, UserRole userRole)
         {
             CurrentOrganizationId = orgId;
             CurrentUserId = userId;
@@ -18,7 +20,7 @@
         {
             CurrentOrganizationId = null;
             CurrentUserId = null;
-            CurrentUserRole = null;
+            CurrentUserRole = UserRole.LoggedOut;
             BillSavePath = null;
         }
 

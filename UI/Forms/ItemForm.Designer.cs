@@ -1,4 +1,7 @@
-﻿namespace ims.UI.Forms
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace ims.UI.Forms
 {
     partial class ItemForm
     {
@@ -18,11 +21,11 @@
             // 
             // ItemForm
             // 
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.ClientSize = new Size(800, 600);
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "Item";
             this.ResumeLayout(false);
         }

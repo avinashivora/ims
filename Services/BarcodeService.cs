@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using ZXing;
@@ -21,7 +22,7 @@ namespace ims.Services
                     }
                 };
 
-                using (var bitmap = new System.Drawing.Bitmap(imagePath))
+                using (var bitmap = new Bitmap(imagePath))
                 {
                     var result = reader.Decode(bitmap);
                     return result?.Text;
@@ -51,7 +52,7 @@ namespace ims.Services
                     await imageStream.CopyToAsync(memoryStream);
                     memoryStream.Position = 0;
 
-                    using (var bitmap = new System.Drawing.Bitmap(memoryStream))
+                    using (var bitmap = new Bitmap(memoryStream))
                     {
                         var result = reader.Decode(bitmap);
                         return result?.Text;

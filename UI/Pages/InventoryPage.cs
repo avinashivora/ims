@@ -136,7 +136,7 @@ namespace ims.UI.Pages
                 bool deletionSuccessful = false;
                 try
                 {
-                    if (item.Quantity > 0 && CacheManager.CurrentUserRole == "Admin")
+                    if (item.Quantity > 0 && CacheManager.CurrentUserRole != UserRole.Staff)
                     {
                         var quantConfirm = MessageBox.Show("This item is available in stock. Do you want to discard item from Inventory?", "Confirm Item Delete Available in Inventory", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (quantConfirm == DialogResult.Yes)

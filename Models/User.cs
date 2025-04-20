@@ -8,7 +8,8 @@ namespace ims.Models
     {
         Admin,
         Manager,
-        Staff
+        Staff,
+        LoggedOut
     }
 
     public class User
@@ -23,5 +24,12 @@ namespace ims.Models
         public string CreatedBy { get; set; }
         public bool FirstLogin { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public string SignupCode { get; set; }
+        public DateTime? SignupCodeExpiry { get; set; }
+        public string ResetPasswordCode { get; set; }
+        public DateTime? ResetPasswordCodeExpiry { get; set; }
+        public string DeleteConfirmationCode { get; set; }
+        public DateTime? DeleteConfirmationCodeExpiry { get; set; }
+        public string Status { get; internal set; }
     }
 }
