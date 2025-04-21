@@ -430,7 +430,7 @@ namespace ims.UI.Forms
             this.MaximizeBox = false;
             this.Name = "RegisterForm";
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.Text = "IMS - Admin Registration";
+            this.Text = "Stock-er - Admin Registration";
             this.pnlEmail.ResumeLayout(false);
             this.pnlEmail.PerformLayout();
             this.pnlVerification.ResumeLayout(false);

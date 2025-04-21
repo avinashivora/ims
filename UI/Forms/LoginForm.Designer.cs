@@ -215,12 +215,12 @@ namespace ims.UI.Forms
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(225, 46);
+            this.lblTitle.Location = new System.Drawing.Point(201, 65);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(172, 45);
+            this.lblTitle.Size = new System.Drawing.Size(236, 45);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "IMS Login";
+            this.lblTitle.Text = "Stock-er Login";
             // 
             // LoginForm
             // 
@@ -235,7 +235,7 @@ namespace ims.UI.Forms
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IMS - Login";
+            this.Text = "Stock-er - Login";
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
             this.ResumeLayout(false);

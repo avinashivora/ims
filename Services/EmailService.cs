@@ -57,11 +57,11 @@ namespace ims.Services
 
         public async Task SendSignupCodeAsync(string email, string code)
         {
-            var subject = "IMS Account Registration";
+            var subject = "Stock-er Account Registration";
             var body = $@"
                 <html>
                 <body>
-                    <h2>Welcome to IMS!</h2>
+                    <h2>Welcome to Stock-er!</h2>
                     <p>Your signup verification code is: <strong>{code}</strong></p>
                     <p>This code will expire in 24 hours.</p>
                 </body>
@@ -72,12 +72,12 @@ namespace ims.Services
 
         public async Task SendInvitationAsync(string email, string code, string inviterEmail)
         {
-            var subject = "Invitation to IMS";
+            var subject = "Invitation to Stock-er";
             var body = $@"
                 <html>
                 <body>
-                    <h2>You've been invited to IMS!</h2>
-                    <p>You've been invited by {inviterEmail} to join the IMS platform.</p>
+                    <h2>You've been invited to Stock-er!</h2>
+                    <p>You've been invited as {inviterEmail} to join the Stock-er platform.</p>
                     <p>Your verification code is: <strong>{code}</strong></p>
                     <p>This code will expire in 24 hours.</p>
                 </body>
@@ -88,7 +88,7 @@ namespace ims.Services
 
         public async Task SendPasswordResetCodeAsync(string email, string code)
         {
-            var subject = "IMS Password Reset";
+            var subject = "Stock-er Password Reset";
             var body = $@"
                 <html>
                 <body>
@@ -104,12 +104,12 @@ namespace ims.Services
 
         public async Task SendAccountDeletionNotificationAsync(string email)
         {
-            var subject = "IMS Account Deleted";
+            var subject = "Stock-er Account Deleted";
             var body = $@"
                 <html>
                 <body>
                     <h2>Account Deleted</h2>
-                    <p>Your IMS account has been deleted.</p>
+                    <p>Your Stock-er account has been deleted.</p>
                     <p>If you believe this was done in error, please contact your administrator.</p>
                 </body>
                 </html>";

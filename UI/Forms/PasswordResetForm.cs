@@ -47,10 +47,10 @@ namespace ims.UI.Forms
                 }
 
                 // Generate and save reset code
-                var resetCode = _authService.GenerateCode();
+                //var resetCode = _authService.GenerateCode();
 
                 // Send email with reset code
-                _ = _emailService.SendPasswordResetCodeAsync(_email, resetCode);
+                _ = _authService.InitiatePasswordResetAsync(_email);
 
                 MessageBox.Show("A password reset code has been sent to your email address.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

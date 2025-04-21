@@ -21,13 +21,16 @@ namespace ims.UI.Forms
             // 
             // ItemForm
             // 
-            this.ClientSize = new Size(800, 600);
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(678, 494);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.StartPosition = FormStartPosition.CenterParent;
+            this.Name = "ItemForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Item";
             this.ResumeLayout(false);
+
         }
     }
 }
