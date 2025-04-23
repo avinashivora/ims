@@ -63,7 +63,7 @@ namespace ims.Services
                 SignupCode = verificationCode,
                 SignupCodeExpiry = DateTime.UtcNow.AddMinutes(15), // Code expires in 15 minutes
                 FirstLogin = true,
-                Role = Models.UserRole.Admin // Default to Admin for initial registration
+                Role = UserRole.Admin // Default to Admin for initial registration
             };
 
             // Save the temporary user
@@ -133,6 +133,11 @@ namespace ims.Services
             if (string.IsNullOrEmpty(organizationName))
             {
                 throw new ArgumentException($"'{nameof(organizationName)}' cannot be null or empty.", nameof(organizationName));
+            }
+
+            if (password.Length < 8)
+            {
+                throw new ArgumentException("Minimum Password Length of 8 characters");
             }
 
             var user = await _userService.GetUserByEmailAsync(email);
@@ -212,6 +217,12 @@ namespace ims.Services
                 return (false, "Code expired. Please ask for a new invitation");
             }
 
+            if (password.Length < 8)
+            {
+                throw new ArgumentException("Minimum Password Length of 8 characters");
+            }
+
+
             // Set password and complete signup
             user.PasswordHash = HashPassword(password);
             user.SignupCode = null;
@@ -251,6 +262,12 @@ namespace ims.Services
 
             if (user.ResetPasswordCodeExpiry < DateTime.UtcNow)
                 return (false, "Code expired. Please request a new password reset");
+
+            if (newPassword.Length < 8)
+            {
+                throw new ArgumentException("Minimum Password Length of 8 characters");
+            }
+
 
             // Set new password
             user.PasswordHash = HashPassword(newPassword);

@@ -147,7 +147,7 @@ namespace ims.UI.Forms
             // 
             this.txtPassword.BorderRadius = 5;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPassword.DefaultText = "pass";
+            this.txtPassword.DefaultText = "";
             this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -169,7 +169,7 @@ namespace ims.UI.Forms
             // 
             this.txtEmail.BorderRadius = 5;
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEmail.DefaultText = "avinashimvora@gmail.com";
+            this.txtEmail.DefaultText = "";
             this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));

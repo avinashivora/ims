@@ -20,6 +20,7 @@ namespace ims
         public static void ShowLoginForm()
         {
             using var loginForm = new LoginForm();
+            
             // Subscribe to events
             loginForm.LoginSuccessful += (sender, e) =>
             {

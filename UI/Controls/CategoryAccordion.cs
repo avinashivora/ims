@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ims.Models;
+using ims.Utils;
 
 namespace ims.UI.Controls
 {
@@ -37,6 +38,11 @@ namespace ims.UI.Controls
 
             btnToggle.Click += async (s, e) => await ToggleAsync();
             // Modified Edit button click to invoke the event with the Category object
+            if (CacheManager.CurrentUserRole == UserRole.Staff)
+            {
+                btnDelete.Visible = false;
+                btnEdit.Visible = false;
+            }
             btnEdit.Click += (s, e) => OnEditCategory?.Invoke(_category);
             btnDelete.Click += (s, e) => OnDeleteCategory?.Invoke(_category.Id);
 

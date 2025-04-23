@@ -35,6 +35,12 @@ namespace ims.UI.Controls
 
         private async Task InitializeFormAsync()
         {
+            if (CacheManager.CurrentUserRole == UserRole.Staff)
+            {
+                btnAddImage.Visible = false;
+                btnDeleteImage.Visible = false;
+                btnSave.Visible = false;
+            }
             var categories = await _categoryService.GetAllCategoriesAsync();
             cmbCategory.DataSource = categories;
             cmbCategory.DisplayMember = "Name";
@@ -63,6 +69,16 @@ namespace ims.UI.Controls
             _imageBase64List = [.. _item.Images ?? []];
             LoadImagePreview();
             btnDownloadBarcode.Visible = true;
+
+            if (CacheManager.CurrentUserRole == UserRole.Staff)
+            {
+                txtName.Enabled = false;
+                txtDescription.Enabled = false;
+                txtPrice.Enabled = false;
+                numQuantity.Enabled = false;
+                cmbCategory.Enabled = false;
+                cmbBarcodeType.Enabled = false;
+            }
         }
 
         private async void BtnSave_Click(object sender, EventArgs e)

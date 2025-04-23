@@ -71,6 +71,7 @@ namespace ims.UI.Forms
                 {
                     // For admin registration, generate and send a new verification code
                     _verificationCode = _authService.GenerateCode();
+                    btnRequestCode.Enabled = false;
                     await _emailService.SendSignupCodeAsync(_email, _verificationCode);
 
                     // Show verification panel

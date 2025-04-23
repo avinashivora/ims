@@ -32,6 +32,11 @@ namespace ims.UI.Controls
         public ItemPreviewCard(Item item)
         {
             InitializeComponent();
+            if (CacheManager.CurrentUserRole == UserRole.Staff)
+            {
+                btnAddStock.Visible = false;
+                btnDeleteItem.Visible = false;
+            }
             this.Width = FixedCardWidth;
             ItemData = item;
             LoadItemDetails();
@@ -74,8 +79,11 @@ namespace ims.UI.Controls
         private void LoadItemDetails()
         {
             lblName.Text = ItemData.Name;
-            lblQuantity.Text = $"In Stock: {ItemData.Quantity}";
-            lblPrice.Text = $"Price: {ItemData.Price}";
+            if (ItemData.Quantity != 0)
+                lblQuantity.Text = $"In Stock: {ItemData.Quantity}";
+            else
+                lblQuantity.Text = "Out of Stock!";
+                lblPrice.Text = $"Price: {ItemData.Price}";
 
             // Make "In Stock:" and "Price:" bold
             lblQuantity.Text = lblQuantity.Text.Replace("In Stock:", "<b>In Stock:</b>");

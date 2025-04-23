@@ -27,6 +27,8 @@ namespace ims.UI.Forms
 
             // Show User Management button only for Admin and Manager roles
             btnUserManagement.Visible = (userRole == UserRole.Admin || userRole == UserRole.Manager);
+            btnCreateCategory.Visible = (userRole != UserRole.Staff);
+            btnCreateItem.Visible = (userRole != UserRole.Staff);
         }
 
         private void LoadInventoryPage()
@@ -124,7 +126,6 @@ namespace ims.UI.Forms
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-            // Ask for confirmation
             DialogResult result = MessageBox.Show(
                 "Are you sure you want to logout?",
                 "Confirm Logout",
@@ -133,25 +134,18 @@ namespace ims.UI.Forms
 
             if (result == DialogResult.Yes)
             {
-                // Clear session data
+                // Clear session
                 CacheManager.ClearSession();
 
-                // Close current form
+                // Hide MainForm first to avoid flash
+                this.Hide();
+                // Close current MainForm instance
                 this.Close();
 
-                // Show login form
-                using var loginForm = new LoginForm();
-                if (loginForm.ShowDialog() == DialogResult.OK)
-                {
-                    // User logged back in, show main form again
-                    Application.Run(new MainForm());
-                }
-                else
-                {
-                    // User canceled login, exit application
-                    Application.Exit();
-                }
+                // Show login form again
+                Program.ShowLoginForm();
             }
         }
+
     }
 }
