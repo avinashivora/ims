@@ -96,19 +96,19 @@ Access is scoped to the organization to prevent data from one organization being
 ### 🛠️ Technology
 
 **Application**
-C#
-.NET / Windows Forms
-Guna UI
+- C#
+- .NET / Windows Forms
+- Guna UI
 
 **Database**
-MongoDB
-MongoDB Atlas
+- MongoDB
+- MongoDB Atlas
 
 **Libraries & Tools**
-BarcodeLib
-ZXing.Net
-BCrypt.Net
-iTextSharp
-Newtonsoft.Json
-SkiaSharp
-Microsoft.Extensions.Hosting
+- BarcodeLib
+- ZXing.Net
+- BCrypt.Net
+- iTextSharp
+- Newtonsoft.Json
+- SkiaSharp
+- Microsoft.Extensions.Hosting
