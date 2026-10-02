@@ -63,3 +63,52 @@ Stock-er provides a centralized system for managing inventory, users, billing, a
          Billing              Inventory 
              │                     |
       PDF Generation          Synchronization
+```
+
+### 🔄 Barcode Workflow
+
+Stock-er supports multiple ways to identify an inventory item:
+
+```text
+Physical Barcode Scanner
+          │
+          ├──────────────┐
+          │              │
+   Barcode String    Barcode Image
+          │              │
+          └───────┬──────┘
+                  ↓
+          Barcode Processing
+                  ↓
+          Product Retrieval
+                  ↓
+          Inventory / Billing
+```
+The application supports barcode generation as well as barcode-based product lookup.
+
+### 👤 User Roles
+- **Admin:**	Organization and user management, inventory, billing
+- **Manager:**	Inventory, billing, and permitted user management
+- **Staff:**	Inventory and billing operations
+
+Access is scoped to the organization to prevent data from one organization being exposed to another.
+
+### 🛠️ Technology
+
+**Application**
+C#
+.NET / Windows Forms
+Guna UI
+
+**Database**
+MongoDB
+MongoDB Atlas
+
+**Libraries & Tools**
+BarcodeLib
+ZXing.Net
+BCrypt.Net
+iTextSharp
+Newtonsoft.Json
+SkiaSharp
+Microsoft.Extensions.Hosting
